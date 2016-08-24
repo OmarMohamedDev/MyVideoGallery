@@ -4,5 +4,6 @@
     <string name="app_name">My Video Gallery</string>
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_main">My Video Gallery</string>
+    <string name="title_menu_record">Record</string>
 
 </resources>

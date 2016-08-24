@@ -6,10 +6,11 @@
 
     <!-- TODO: Order properly dimensions in section -->
     <dimen name="activity_padding">12dp</dimen>
-    <dimen name="cardview_elevation">4dp</dimen>
+    <dimen name="view_elevation">4dp</dimen>
     <dimen name="avatar_standard_dimension">100dp</dimen>
     <dimen name="text_margin">16dp</dimen>
     <dimen name="text_margin_bottom">10dp</dimen>
     <dimen name="text_title_dimension">18sp</dimen>
-    <dimen name="avatar_margin">16dp</dimen>
+    <dimen name="icon_margin">16dp</dimen>
+    <dimen name="icon_padding">10dp</dimen>
     </resources>

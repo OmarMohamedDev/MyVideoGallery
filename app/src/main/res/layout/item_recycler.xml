@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:foreground="?android:attr/selectableItemBackground"
     android:orientation="vertical"
-    application:cardElevation="@dimen/cardview_elevation"
+    application:cardElevation="@dimen/view_elevation"
     application:cardUseCompatPadding="true">
 
     <RelativeLayout
@@ -22,7 +22,7 @@
             android:layout_height="@dimen/avatar_standard_dimension"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
-            android:layout_margin="@dimen/avatar_margin"
+            android:layout_margin="@dimen/icon_margin"
             android:src="@mipmap/ic_launcher" />
 
         <LinearLayout
