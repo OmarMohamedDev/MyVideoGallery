@@ -1,7 +1,7 @@
 package com.omarmohamed.myvideogallery.interactors;
 
 import com.omarmohamed.myvideogallery.api.MyApi;
-import com.omarmohamed.myvideogallery.models.PetModel;
+import com.omarmohamed.myvideogallery.models.VideoModel;
 import com.omarmohamed.myvideogallery.ui.main.OnFinishedListener;
 
 import java.util.List;
@@ -23,11 +23,11 @@ public class FindItemsInteractorImpl implements FindItemsInteractor {
     @Override public void findItems(final OnFinishedListener listener) {
 
 
-        getPetsApi.getPets(new Callback<List<PetModel>>() {
+        getPetsApi.getPets(new Callback<List<VideoModel>>() {
 
             @Override
-            public void success(List<PetModel> petModelList, Response response) {
-                listener.onFinished(petModelList);
+            public void success(List<VideoModel> videoModelList, Response response) {
+                listener.onFinished(videoModelList);
             }
 
             @Override

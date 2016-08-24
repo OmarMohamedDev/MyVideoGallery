@@ -1,6 +1,7 @@
 package com.omarmohamed.myvideogallery.adapter;
 
 import com.omarmohamed.myvideogallery.utils.Constants;
+
 import retrofit.RestAdapter;
 
 public class RestApiAdapter {
@@ -11,7 +12,7 @@ public class RestApiAdapter {
         if (sharedInstance == null){
 
             sharedInstance = new RestAdapter.Builder()
-                    .setEndpoint(Constants.URL)
+                    .setEndpoint(Constants.Network.BASE_URL)
                     .build();
         }
 

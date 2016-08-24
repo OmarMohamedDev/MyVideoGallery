@@ -10,7 +10,7 @@ import com.omarmohamed.myvideogallery.R;
 import com.omarmohamed.myvideogallery.adapter.RecyclerViewAdapter;
 import com.omarmohamed.myvideogallery.component.AppComponent;
 import com.omarmohamed.myvideogallery.component.DaggerMainComponent;
-import com.omarmohamed.myvideogallery.models.PetModel;
+import com.omarmohamed.myvideogallery.models.VideoModel;
 import com.omarmohamed.myvideogallery.modules.MainModule;
 import com.omarmohamed.myvideogallery.ui.common.BaseActivity;
 
@@ -70,7 +70,8 @@ public class MainActivity extends BaseActivity implements MainView {
         recyclerView.setVisibility(View.VISIBLE);
     }
 
-    @Override public void setItems(List<PetModel> items) {
+    @Override
+    public void setItems(List<VideoModel> items) {
         if(adapter != null){
             adapter.setItems(items);
             recyclerView.setAdapter(adapter);

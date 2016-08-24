@@ -1,7 +1,7 @@
 package com.omarmohamed.myvideogallery.api;
 
 
-import com.omarmohamed.myvideogallery.models.PetModel;
+import com.omarmohamed.myvideogallery.models.VideoModel;
 
 import java.util.List;
 
@@ -16,6 +16,6 @@ public interface MyApi {
     })
 
     @GET("/pet/findByStatus?status=available")
-    public void getPets(Callback<List<PetModel>> callback);
+    void getPets(Callback<List<VideoModel>> callback);
 
 }

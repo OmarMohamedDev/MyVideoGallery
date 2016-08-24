@@ -1,7 +1,7 @@
 package com.omarmohamed.myvideogallery.ui.main;
 
 import com.omarmohamed.myvideogallery.interactors.FindItemsInteractor;
-import com.omarmohamed.myvideogallery.models.PetModel;
+import com.omarmohamed.myvideogallery.models.VideoModel;
 
 import java.util.List;
 
@@ -20,7 +20,8 @@ public class MainPresenterImpl implements MainPresenter, OnFinishedListener {
         findItemsInteractor.findItems(this);
     }
 
-    @Override public void onFinished(List<PetModel> items) {
+    @Override
+    public void onFinished(List<VideoModel> items) {
         mainView.hideProgress();
         mainView.setItems(items);
     }

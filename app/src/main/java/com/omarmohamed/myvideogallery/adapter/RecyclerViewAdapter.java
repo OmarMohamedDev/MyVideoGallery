@@ -8,7 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.omarmohamed.myvideogallery.R;
-import com.omarmohamed.myvideogallery.models.PetModel;
+import com.omarmohamed.myvideogallery.models.VideoModel;
 
 import java.util.List;
 
@@ -17,9 +17,9 @@ import butterknife.InjectView;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>{
 
-    private List<PetModel> items;
+    private List<VideoModel> items;
 
-    public void setItems(List<PetModel> items){
+    public void setItems(List<VideoModel> items) {
         this.items = items;
     }
 
@@ -30,7 +30,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     }
 
     @Override public void onBindViewHolder(final ViewHolder holder, int position) {
-        final PetModel item = items.get(position);
+        final VideoModel item = items.get(position);
 
         //TODO: Set properly value to thumbnail, title, timestamp and duration
         //holder.textTitle.setText(item.getName());

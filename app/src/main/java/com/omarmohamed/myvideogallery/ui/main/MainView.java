@@ -1,15 +1,15 @@
 package com.omarmohamed.myvideogallery.ui.main;
 
-import com.omarmohamed.myvideogallery.models.PetModel;
+import com.omarmohamed.myvideogallery.models.VideoModel;
 
 import java.util.List;
 
 public interface MainView {
 
-    public void showProgress();
+    void showProgress();
 
-    public void hideProgress();
+    void hideProgress();
 
-    public void setItems(List<PetModel> items);
+    void setItems(List<VideoModel> items);
 
 }
