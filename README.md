@@ -9,3 +9,5 @@ user to modify/reproduce them later.
 ##External Libraries
 - Google Dagger2, for dependency injection
 - Google Volley, for network tasks, caching, etc.
+- RXJava, for for asynchronous programming with observable streams
+- ButterKnife, for field and method binding

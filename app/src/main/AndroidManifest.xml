@@ -3,12 +3,19 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.omarmohamed.myvideogallery">
 
+    <!-- Basic permissions -->
+    <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.INTERNET" />
 
+    <!-- The user MUST can use the camera of the device in order to use properly the application -->
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
+
     <application
+        android:name="com.omarmohamed.myvideogallery.Application"
         android:allowBackup="true"
-        android:name="com.omarmohamed.myvideogallery.App"
-        android:icon="@drawable/ic_launcher"
+        android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
         <activity

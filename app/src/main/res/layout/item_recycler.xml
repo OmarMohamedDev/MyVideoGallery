@@ -1,50 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:app="http://schemas.android.com/apk/res-auto"
-             android:orientation="vertical"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             android:foreground="?android:attr/selectableItemBackground">
-    
-    <android.support.v7.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:cardElevation="4dp"
-        app:cardUseCompatPadding="true">
-        
-        <FrameLayout
-            android:orientation="vertical"
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:application="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:foreground="?android:attr/selectableItemBackground"
+    android:orientation="vertical"
+    application:cardElevation="@dimen/cardview_elevation"
+    application:cardUseCompatPadding="true">
+
+    <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
             android:padding="@dimen/activity_horizontal_margin">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal" >
+        <!-- TODO: Set the style of the text in the styles file and remove hardcoded text and images from here -->
 
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1">
+        <ImageView
+            android:id="@+id/imageThumbnail"
+            android:layout_width="@dimen/avatar_standard_dimension"
+            android:layout_height="@dimen/avatar_standard_dimension"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="@dimen/avatar_margin"
+            android:src="@mipmap/ic_launcher" />
 
-                    <TextView
-                        android:id="@+id/textName"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:singleLine="false"
-                        android:gravity="center|left"
-                        android:maxLines="2"
-                        android:ellipsize="end"
-                        android:text="Name" />
+        <LinearLayout
+            android:id="@+id/textContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_margin="@dimen/text_margin"
+            android:layout_toRightOf="@id/imageThumbnail"
+            android:orientation="vertical">
 
-                </LinearLayout>
+            <TextView
+                android:id="@+id/textTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/text_margin_bottom"
+                android:maxLines="1"
+                android:text="Name"
+                android:textSize="@dimen/text_title_dimension"
+                android:textStyle="bold" />
 
+            <TextView
+                android:id="@+id/textTimestamp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:text="21:00:00, 24 Aug 06"
+                android:textStyle="italic" />
+
+            <TextView
+                android:id="@+id/textDuration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:text="15 seconds" />
             </LinearLayout>
 
-        </FrameLayout>
-        
-    </android.support.v7.widget.CardView>
-    
-</FrameLayout>
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

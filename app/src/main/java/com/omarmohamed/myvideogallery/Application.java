@@ -1,6 +1,5 @@
 package com.omarmohamed.myvideogallery;
 
-import android.app.Application;
 import android.content.Context;
 
 import com.omarmohamed.myvideogallery.component.AppComponent;
@@ -10,12 +9,15 @@ import com.omarmohamed.myvideogallery.modules.AppModule;
 
 import javax.inject.Inject;
 
-public class App extends Application {
-
-    private AppComponent component;
+public class Application extends android.app.Application {
 
     @Inject
     AnalyticsManager analyticsManager;
+    private AppComponent component;
+
+    public static Application get(Context context) {
+        return (Application) context.getApplicationContext();
+    }
 
     @Override public void onCreate() {
         super.onCreate();
@@ -32,9 +34,5 @@ public class App extends Application {
 
     public AppComponent component() {
         return component;
-    }
-
-    public static App get(Context context) {
-        return (App) context.getApplicationContext();
     }
 }
