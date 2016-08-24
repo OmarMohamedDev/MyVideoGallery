@@ -1,6 +1,6 @@
 #MyVideoGallery
 
-Android application that permit to record and store videos in order to be list them and permit to the
+Android application that permit to record and store videos in order to list them and permit to the
 user to modify/reproduce them later.
 
 ##Design Patterns
