@@ -1,5 +1,11 @@
-RetroDagger
-=============
+#MyVideoGallery
 
-Android project using MVP + Dagger2 + Retrofit.
-This code was created to support this article: https://medium.com/@franpulido/retrofit-dagger-mvp-305ac2cf646c
+Android application that permit to record and store videos in order to be list them and permit to the
+user to modify/reproduce them later.
+
+##Design Patterns
+- MVP, Model-View-Presenter
+
+##External Libraries
+- Google Dagger2, for dependency injection
+- Google Volley, for network tasks, caching, etc.
