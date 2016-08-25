@@ -5,5 +5,6 @@
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_main">My Video Gallery</string>
     <string name="title_menu_record">Record</string>
+    <string name="video_created_in">Created in %1$d seconds</string>
 
 </resources>

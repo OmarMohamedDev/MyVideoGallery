@@ -32,8 +32,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @Override public void onBindViewHolder(final ViewHolder holder, int position) {
         final VideoModel item = items.get(position);
 
-        //TODO: Set properly value to thumbnail, title, timestamp and duration
+        //TODO: Set properly value to thumbnail, title, timestamp, duration and creation time
         //holder.textTitle.setText(item.getName());
+        //Retrieving the basic string and formatting it with the right value TODO:pass the proper value to the parameter
+        holder.textCreationTime.setText(String.format(holder.textCreationTime.getText().toString(), 3/*item.getmCreationTime()*/));
 
         holder.itemView.setTag(item);
     }
@@ -52,6 +54,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         TextView textTimestamp;
         @InjectView(R.id.textDuration)
         TextView textDuration;
+        @InjectView(R.id.textCreationTime)
+        TextView textCreationTime;
 
         public ViewHolder(View itemView) {
             super(itemView);

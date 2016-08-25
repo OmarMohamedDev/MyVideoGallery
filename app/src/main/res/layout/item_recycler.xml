@@ -9,10 +9,9 @@
     application:cardUseCompatPadding="true">
 
     <RelativeLayout
-            android:layout_width="match_parent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-            android:padding="@dimen/activity_horizontal_margin">
+        android:orientation="vertical">
 
         <!-- TODO: Set the style of the text in the styles file and remove hardcoded text and images from here -->
 
@@ -58,7 +57,44 @@
                 android:layout_height="wrap_content"
                 android:maxLines="1"
                 android:text="15 seconds" />
-            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textCreationTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:text="@string/video_created_in" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/iconsContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/textContainer"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/iconDelete"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/icon_standard_height"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/icon_margin"
+                android:layout_marginBottom="@dimen/text_margin_bottom"
+                android:clickable="true"
+                android:src="@drawable/ic_delete" />
+
+            <ImageView
+                android:id="@+id/iconShare"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/icon_standard_height"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/icon_margin"
+                android:layout_marginBottom="@dimen/text_margin_bottom"
+                android:clickable="true"
+                android:src="@drawable/ic_share" />
+        </LinearLayout>
 
     </RelativeLayout>
 

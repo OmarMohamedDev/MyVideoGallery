@@ -22,4 +22,42 @@ public class VideoModel {
      */
     private String mDuration;
 
+    /**
+     * Time that the app used to elaborate the recorded video
+     */
+    private String mCreationTime;
+
+
+    //Getters and Setters
+    public String getmTitle() {
+        return mTitle;
+    }
+
+    public void setmTitle(String mTitle) {
+        this.mTitle = mTitle;
+    }
+
+    public String getmTimestamp() {
+        return mTimestamp;
+    }
+
+    public void setmTimestamp(String mTimestamp) {
+        this.mTimestamp = mTimestamp;
+    }
+
+    public String getmDuration() {
+        return mDuration;
+    }
+
+    public void setmDuration(String mDuration) {
+        this.mDuration = mDuration;
+    }
+
+    public String getmCreationTime() {
+        return mCreationTime;
+    }
+
+    public void setmCreationTime(String mCreationTime) {
+        this.mCreationTime = mCreationTime;
+    }
 }
