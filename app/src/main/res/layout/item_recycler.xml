@@ -74,7 +74,7 @@
             android:layout_centerVertical="true"
             android:layout_toRightOf="@id/textContainer"
             android:orientation="vertical">
-
+            <!-- TODO: Check if clickable should be setted to true here or elsewhere -->
             <ImageView
                 android:id="@+id/iconDelete"
                 android:layout_width="wrap_content"
