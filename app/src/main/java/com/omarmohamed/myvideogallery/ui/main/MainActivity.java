@@ -6,11 +6,9 @@ import android.os.Environment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
-import android.widget.Toast;
 
 import com.afollestad.materialcamera.MaterialCamera;
 import com.omarmohamed.myvideogallery.R;
@@ -108,7 +106,7 @@ public class MainActivity extends BaseActivity implements MainView {
         }
     }
 
-    //TODO:Handle differently the onclick method and how to make the best choice for MVP pattern
+    //TODO:Handle differently the onclick method and how to make the best choice for MVP pattern (DECOUPLE)
     public void startPlayer(View view) {
         startActivity(new Intent(this, PlayerActivity.class));
     }
@@ -118,35 +116,35 @@ public class MainActivity extends BaseActivity implements MainView {
 
         File saveFolder = new File(Environment.getExternalStorageDirectory(), "MaterialCamera Sample");
         //TODO: Check write permissions
-        if (!saveFolder.mkdirs())
-            throw new RuntimeException("Unable to create save directory, make sure WRITE_EXTERNAL_STORAGE permission is granted.");
-
+        //   if (!saveFolder.mkdirs())
+        //       throw new RuntimeException("Unable to create save directory, make sure WRITE_EXTERNAL_STORAGE permission is granted.");
+        //TODO: SET PROPERLY THE SAVE DIR AVOIDING THE CRASH IF POSSIBILE
         new MaterialCamera(this)                               // Constructor takes an Activity
-                .allowRetry(true)                                  // Whether or not 'Retry' is visible during playback
-                .autoSubmit(true)                                 // Whether or not user is allowed to playback videos after recording. This can affect other things, discussed in the next section.
-                .saveDir(Constants.Recorder.VIDEO_DIRECTORY)          // The folder recorded videos are saved to
-                .primaryColorAttr(R.attr.colorPrimary)             // The theme color used for the camera, defaults to colorPrimary of Activity in the constructor
+//                .allowRetry(true)                                  // Whether or not 'Retry' is visible during playback
+//                .autoSubmit(true)                                 // Whether or not user is allowed to playback videos after recording. This can affect other things, discussed in the next section.
+//                .saveDir(Constants.Recorder.VIDEO_DIRECTORY)          // The folder recorded videos are saved to
+//                .primaryColorAttr(R.attr.colorPrimary)             // The theme color used for the camera, defaults to colorPrimary of Activity in the constructor
                 .showPortraitWarning(false)                         // Whether or not a warning is displayed if the user presses record in portrait orientation
                 .defaultToFrontFacing(true)                       // Whether or not the camera will initially show the front facing camera
-                .retryExits(false)                                 // If true, the 'Retry' button in the playback screen will exit the camera instead of going back to the recorder
-                .restartTimerOnRetry(false)                        // If true, the countdown timer is reset to 0 when the user taps 'Retry' in playback
-                .continueTimerInPlayback(false)                    // If true, the countdown timer will continue to go down during playback, rather than pausing.
-                .videoEncodingBitRate(1024000)                     // Sets a custom bit rate for video recording.
-                .audioEncodingBitRate(50000)                       // Sets a custom bit rate for audio recording.
-                .videoFrameRate(24)                                // Sets a custom frame rate (FPS) for video recording.
-                .qualityProfile(MaterialCamera.QUALITY_HIGH)       // Sets a quality profile, manually setting bit rates or frame rates with other settings will overwrite individual quality profile settings
-                .videoPreferredHeight(720)                         // Sets a preferred height for the recorded video output.
-                .videoPreferredAspect(4f / 3f)                     // Sets a preferred aspect ratio for the recorded video output.
-                .maxAllowedFileSize(1024 * 1024 * 5)               // Sets a max file size of 5MB, recording will stop if file reaches this limit. Keep in mind, the FAT file system has a file size limit of 4GB.
-                .iconRecord(R.drawable.mcam_action_capture)        // Sets a custom icon for the button used to start recording
-                .iconStop(R.drawable.mcam_action_stop)             // Sets a custom icon for the button used to stop recording
-                .iconFrontCamera(R.drawable.mcam_camera_front)     // Sets a custom icon for the button used to switch to the front camera
-                .iconRearCamera(R.drawable.mcam_camera_rear)       // Sets a custom icon for the button used to switch to the rear camera
-                .iconPlay(R.drawable.evp_action_play)              // Sets a custom icon used to start playback
-                .iconPause(R.drawable.evp_action_pause)            // Sets a custom icon used to pause playback
-                .iconRestart(R.drawable.evp_action_restart)        // Sets a custom icon used to restart playback
-                .labelRetry(R.string.mcam_retry)                   // Sets a custom button label for the button used to retry recording, when available
-                .labelUseVideo(R.string.mcam_use_video)            // Sets a custom button label for the button used to confirm a recording
+//                .retryExits(false)                                 // If true, the 'Retry' button in the playback screen will exit the camera instead of going back to the recorder
+//                .restartTimerOnRetry(false)                        // If true, the countdown timer is reset to 0 when the user taps 'Retry' in playback
+//                .continueTimerInPlayback(false)                    // If true, the countdown timer will continue to go down during playback, rather than pausing.
+//                .videoEncodingBitRate(1024000)                     // Sets a custom bit rate for video recording.
+//                .audioEncodingBitRate(50000)                       // Sets a custom bit rate for audio recording.
+//                .videoFrameRate(24)                              // Sets a custom frame rate (FPS) for video recording.
+//                .qualityProfile(MaterialCamera.QUALITY_HIGH)       // Sets a quality profile, manually setting bit rates or frame rates with other settings will overwrite individual quality profile settings
+//                .videoPreferredHeight(720)                         // Sets a preferred height for the recorded video output.
+//                .videoPreferredAspect(4f / 3f)                     // Sets a preferred aspect ratio for the recorded video output.
+//                .maxAllowedFileSize(1024 * 1024 * 5)               // Sets a max file size of 5MB, recording will stop if file reaches this limit. Keep in mind, the FAT file system has a file size limit of 4GB.
+//                .iconRecord(R.drawable.mcam_action_capture)        // Sets a custom icon for the button used to start recording
+//                .iconStop(R.drawable.mcam_action_stop)             // Sets a custom icon for the button used to stop recording
+//                .iconFrontCamera(R.drawable.mcam_camera_front)     // Sets a custom icon for the button used to switch to the front camera
+//                .iconRearCamera(R.drawable.mcam_camera_rear)       // Sets a custom icon for the button used to switch to the rear camera
+//                .iconPlay(R.drawable.evp_action_play)              // Sets a custom icon used to start playback
+//                .iconPause(R.drawable.evp_action_pause)            // Sets a custom icon used to pause playback
+//                .iconRestart(R.drawable.evp_action_restart)        // Sets a custom icon used to restart playback
+//                .labelRetry(R.string.mcam_retry)                   // Sets a custom button label for the button used to retry recording, when available
+//                .labelUseVideo(R.string.mcam_use_video)            // Sets a custom button label for the button used to confirm a recording
                 .countdownMillis(Constants.Recorder.VIDEO_MAX_DURATION_IN_MILLISECONDS) //Max duration for the video
                 .start(Constants.Recorder.CAMERA_RQ);                                 // Starts the camera activity, the result will be sent back to the current Activity
     }

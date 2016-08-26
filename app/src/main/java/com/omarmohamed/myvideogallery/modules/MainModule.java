@@ -1,7 +1,6 @@
 package com.omarmohamed.myvideogallery.modules;
 
 import com.omarmohamed.myvideogallery.adapter.RecyclerViewAdapter;
-import com.omarmohamed.myvideogallery.interactors.FindItemsInteractor;
 import com.omarmohamed.myvideogallery.ui.main.MainPresenter;
 import com.omarmohamed.myvideogallery.ui.main.MainPresenterImpl;
 import com.omarmohamed.myvideogallery.ui.main.MainView;
@@ -23,8 +22,8 @@ public class MainModule {
     }
 
     @Provides
-    public MainPresenter providePresenter(MainView mainView, FindItemsInteractor findItemsInteractor) {
-        return new MainPresenterImpl(mainView, findItemsInteractor);
+    public MainPresenter providePresenter(MainView mainView/*, FindItemsInteractor findItemsInteractor*/) {
+        return new MainPresenterImpl(mainView/*, findItemsInteractor*/);
     }
 
     @Provides
