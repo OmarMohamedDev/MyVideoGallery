@@ -13,6 +13,7 @@ user to modify/reproduce them later.
 - RXJava, for for asynchronous programming with observable streams
 - ButterKnife, for field and method binding
 - ExoPlayer, for HLS Video Streaming
+- Material Camera, for Video Recording
 
 ##Projects used as base
 - https://github.com/fr4nk1/retro-dagger-example
