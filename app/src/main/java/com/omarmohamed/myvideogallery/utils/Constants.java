@@ -12,6 +12,11 @@ public class Constants {
      */
     public static class Video {
 
+        public static final String VIDEO_DIRECTORY = "MyVideoGallery";
+        //Title video separators
+        public static final String VIDEO_TITLE_SEPARATOR = "_";
+        public static final String VIDEO_TITLE_FILE_SPACE = "-";
+        public static final String VIDEO_TITLE_READABLE_SPACE = " ";
         /**
          * Max duration arbitrarily set for a video
          */

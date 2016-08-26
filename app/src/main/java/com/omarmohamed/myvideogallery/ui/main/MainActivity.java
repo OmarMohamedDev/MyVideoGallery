@@ -1,5 +1,6 @@
 package com.omarmohamed.myvideogallery.ui.main;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -14,6 +15,7 @@ import com.omarmohamed.myvideogallery.component.DaggerMainComponent;
 import com.omarmohamed.myvideogallery.models.VideoModel;
 import com.omarmohamed.myvideogallery.modules.MainModule;
 import com.omarmohamed.myvideogallery.ui.common.BaseActivity;
+import com.omarmohamed.myvideogallery.ui.video.PlayerActivity;
 
 import java.util.List;
 
@@ -88,6 +90,11 @@ public class MainActivity extends BaseActivity implements MainView {
             adapter.setItems(items);
             recyclerView.setAdapter(adapter);
         }
+    }
+
+    //TODO:Handle differently the onclick method
+    public void startPlayer(View view) {
+        startActivity(new Intent(this, PlayerActivity.class));
     }
 
 }
