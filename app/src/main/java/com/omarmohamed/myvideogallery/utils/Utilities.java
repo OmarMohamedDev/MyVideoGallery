@@ -31,7 +31,7 @@ public class Utilities {
 //            // using Environment.getExternalStorageState() before doing this.
 //
 //            File mediaStorageDir = new File(Environment.getExternalStoragePublicDirectory(
-//                    Environment.DIRECTORY_PICTURES), Constants.Video.VIDEO_DIRECTORY);
+//                    Environment.DIRECTORY_PICTURES), Constants.Recorder.VIDEO_DIRECTORY);
 //            // This location works best if you want the created images to be shared
 //            // between applications and persist after your app has been uninstalled.
 //
@@ -47,7 +47,7 @@ public class Utilities {
 //            // So that we don't need to do any kind of database
 //            String timeStamp = new SimpleDateFormat("ddMMyyyy_HHmmss").format(new Date());
 //            return new File(mediaStorageDir.getPath() + File.separator +
-//                    "VID" + Constants.Video.TITLE_SEPARATOR + timeStamp + Constants.Video.TITLE_SEPARATOR +
+//                    "VID" + Constants.Recorder.TITLE_SEPARATOR + timeStamp + Constants.Recorder.TITLE_SEPARATOR +
 //                    videoTitle + ".mp4");
 //        }
 //    }

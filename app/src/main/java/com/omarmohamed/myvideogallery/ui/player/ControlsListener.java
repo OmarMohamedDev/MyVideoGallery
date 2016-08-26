@@ -1,4 +1,4 @@
-package com.omarmohamed.myvideogallery.ui.video;
+package com.omarmohamed.myvideogallery.ui.player;
 
 /**
  * Interface that define signature for methods that can control the video flow

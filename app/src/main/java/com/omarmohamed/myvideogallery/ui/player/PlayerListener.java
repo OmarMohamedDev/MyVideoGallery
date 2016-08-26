@@ -1,4 +1,4 @@
-package com.omarmohamed.myvideogallery.ui.video;
+package com.omarmohamed.myvideogallery.ui.player;
 
 /**
  * Created by omarmohamed on 26/08/2016.

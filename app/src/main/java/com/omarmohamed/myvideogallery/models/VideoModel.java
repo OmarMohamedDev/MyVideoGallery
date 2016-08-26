@@ -1,7 +1,7 @@
 package com.omarmohamed.myvideogallery.models;
 
 /**
- * Model class that represent a Video object
+ * Model class that represent a Recorder object
  *
  * @author OmarMohamedDev
  */

@@ -6,13 +6,13 @@
     android:keepScreenOn="true"
     android:orientation="vertical">
 
-    <com.omarmohamed.myvideogallery.ui.video.VideoPlayerView
+    <com.omarmohamed.myvideogallery.ui.player.VideoPlayerView
         android:id="@+id/player_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_centerInParent="true" />
 
-    <com.omarmohamed.myvideogallery.ui.video.ControlsContainer
+    <com.omarmohamed.myvideogallery.ui.player.ControlsContainer
         android:id="@+id/controls_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

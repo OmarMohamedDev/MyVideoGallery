@@ -1,4 +1,4 @@
-package com.omarmohamed.myvideogallery.ui.video;
+package com.omarmohamed.myvideogallery.ui.player;
 
 /**
  * This class handles underlying business to set up the exoplayer

@@ -1,4 +1,4 @@
-package com.omarmohamed.myvideogallery.ui.video;
+package com.omarmohamed.myvideogallery.ui.player;
 
 import android.content.Intent;
 import android.os.Bundle;
