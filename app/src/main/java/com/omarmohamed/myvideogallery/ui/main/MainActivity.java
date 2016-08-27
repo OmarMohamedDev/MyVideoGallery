@@ -2,13 +2,13 @@ package com.omarmohamed.myvideogallery.ui.main;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Environment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.afollestad.materialcamera.MaterialCamera;
 import com.omarmohamed.myvideogallery.R;
@@ -21,7 +21,6 @@ import com.omarmohamed.myvideogallery.ui.common.BaseActivity;
 import com.omarmohamed.myvideogallery.ui.player.PlayerActivity;
 import com.omarmohamed.myvideogallery.utils.Constants;
 
-import java.io.File;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -113,11 +112,6 @@ public class MainActivity extends BaseActivity implements MainView {
 
     public void startRecorder() {
 
-
-        File saveFolder = new File(Environment.getExternalStorageDirectory(), "MaterialCamera Sample");
-        //TODO: Check write permissions
-        //   if (!saveFolder.mkdirs())
-        //       throw new RuntimeException("Unable to create save directory, make sure WRITE_EXTERNAL_STORAGE permission is granted.");
         //TODO: SET PROPERLY THE SAVE DIR AVOIDING THE CRASH IF POSSIBILE
         new MaterialCamera(this)                               // Constructor takes an Activity
 //                .allowRetry(true)                                  // Whether or not 'Retry' is visible during playback
@@ -147,6 +141,24 @@ public class MainActivity extends BaseActivity implements MainView {
 //                .labelUseVideo(R.string.mcam_use_video)            // Sets a custom button label for the button used to confirm a recording
                 .countdownMillis(Constants.Recorder.VIDEO_MAX_DURATION_IN_MILLISECONDS) //Max duration for the video
                 .start(Constants.Recorder.CAMERA_RQ);                                 // Starts the camera activity, the result will be sent back to the current Activity
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        // Received recording or error from MaterialCamera
+        if (requestCode == Constants.Recorder.CAMERA_RQ) {
+
+            if (resultCode == RESULT_OK) {
+
+                Toast.makeText(this, "Saved to: " + data.getDataString(), Toast.LENGTH_LONG).show();
+            } else if (data != null) {
+                Exception e = (Exception) data.getSerializableExtra(MaterialCamera.ERROR_EXTRA);
+                e.printStackTrace();
+                Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
+            }
+        }
     }
 
 
