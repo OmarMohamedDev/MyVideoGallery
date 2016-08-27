@@ -61,7 +61,7 @@ public class Utilities {
      * @return the value in seconds as String
      */
     public static String fromMillisecondsToSeconds(int mill) {
-        return String.format("%d sec",
+        return String.format("%d",
                 TimeUnit.MILLISECONDS.toSeconds(mill) -
                         TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(mill)
                         ));
