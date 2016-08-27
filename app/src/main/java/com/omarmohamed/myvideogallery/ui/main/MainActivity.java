@@ -1,7 +1,12 @@
 package com.omarmohamed.myvideogallery.ui.main;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.os.Environment;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -21,6 +26,7 @@ import com.omarmohamed.myvideogallery.ui.common.BaseActivity;
 import com.omarmohamed.myvideogallery.ui.player.PlayerActivity;
 import com.omarmohamed.myvideogallery.utils.Constants;
 
+import java.io.File;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -111,12 +117,21 @@ public class MainActivity extends BaseActivity implements MainView {
     }
 
     public void startRecorder() {
+        File saveFolder = null;
+
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            // Request permission to save videos in external storage
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, Constants.Recorder.PERMISSION_RQ);
+        }
+
+        //Setting up the saving folder
+        saveFolder = new File(Environment.getExternalStorageDirectory(), Constants.Recorder.VIDEO_DIRECTORY);
 
         //TODO: SET PROPERLY THE SAVE DIR AVOIDING THE CRASH IF POSSIBILE
         new MaterialCamera(this)                               // Constructor takes an Activity
 //                .allowRetry(true)                                  // Whether or not 'Retry' is visible during playback
 //                .autoSubmit(true)                                 // Whether or not user is allowed to playback videos after recording. This can affect other things, discussed in the next section.
-//                .saveDir(Constants.Recorder.VIDEO_DIRECTORY)          // The folder recorded videos are saved to
+                .saveDir(saveFolder)          // The folder recorded videos are saved to
 //                .primaryColorAttr(R.attr.colorPrimary)             // The theme color used for the camera, defaults to colorPrimary of Activity in the constructor
                 .showPortraitWarning(false)                         // Whether or not a warning is displayed if the user presses record in portrait orientation
                 .defaultToFrontFacing(true)                       // Whether or not the camera will initially show the front facing camera

@@ -22,6 +22,10 @@ public class Constants {
          */
         public static final int CAMERA_RQ = 6969;
         /**
+         * Constants used to check if the write on external storage permission was granted properly
+         */
+        public final static int PERMISSION_RQ = 84;
+        /**
          * Max duration arbitrarily set for a video
          */
         public static int VIDEO_MAX_DURATION_IN_MILLISECONDS = 20000;
