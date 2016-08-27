@@ -10,7 +10,6 @@
     <string name="video_player_error">Unfortunately, an error occurred during playback.</string>
     <string name="video_preview">Video Preview</string>
     <string name="video_recording">Record a Video</string>
-    <string name="title_activity_recorder">RecorderActivity</string>
-    <string name="dummy_button">Dummy Button</string>
-    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="saved_to">Saved to: </string>
+    <string name="write_permissions_not_granted">Videos will be saved in a cache directory instead of an external storage directory since permission was denied.</string>
 </resources>

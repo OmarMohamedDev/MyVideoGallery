@@ -1,5 +1,7 @@
 package com.omarmohamed.myvideogallery.models;
 
+import android.graphics.Bitmap;
+
 /**
  * Model class that represent a Recorder object
  *
@@ -27,37 +29,63 @@ public class VideoModel {
      */
     private String mCreationTime;
 
+    /**
+     * Bitmap that contain the video thumbnail that will be displayed in the list
+     */
+    private Bitmap mThumbnail;
+
+    /**
+     * Internal path to the video
+     */
+    private String mPath;
+
 
     //Getters and Setters
-    public String getmTitle() {
+    public String getTitle() {
         return mTitle;
     }
 
-    public void setmTitle(String mTitle) {
+    public void setTitle(String mTitle) {
         this.mTitle = mTitle;
     }
 
-    public String getmTimestamp() {
+    public String getTimestamp() {
         return mTimestamp;
     }
 
-    public void setmTimestamp(String mTimestamp) {
+    public void setTimestamp(String mTimestamp) {
         this.mTimestamp = mTimestamp;
     }
 
-    public String getmDuration() {
+    public String getDuration() {
         return mDuration;
     }
 
-    public void setmDuration(String mDuration) {
+    public void setDuration(String mDuration) {
         this.mDuration = mDuration;
     }
 
-    public String getmCreationTime() {
+    public String getCreationTime() {
         return mCreationTime;
     }
 
-    public void setmCreationTime(String mCreationTime) {
+    public void setCreationTime(String mCreationTime) {
         this.mCreationTime = mCreationTime;
+    }
+
+    public Bitmap getThumbnail() {
+        return mThumbnail;
+    }
+
+    public void setThumbnail(Bitmap mThumbnail) {
+        this.mThumbnail = mThumbnail;
+    }
+
+    public String getPath() {
+        return mPath;
+    }
+
+    public void setPath(String mPath) {
+        this.mPath = mPath;
     }
 }

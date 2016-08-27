@@ -12,7 +12,7 @@ user to modify/reproduce them later.
 - Google Volley, for network tasks, caching, etc.
 - RXJava, for for asynchronous programming with observable streams
 - ButterKnife, for field and method binding
-- ExoPlayer, for HLS Video Streaming
+- ExoPlayer, for Video Playback
 - Material Camera, for Video Recording
 
 ##Projects used as base

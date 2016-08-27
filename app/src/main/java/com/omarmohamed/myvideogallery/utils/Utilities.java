@@ -1,5 +1,7 @@
 package com.omarmohamed.myvideogallery.utils;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * Class that contains utilities methods for different part of the application
  * Created by omarmohamed on 26/08/2016.
@@ -51,4 +53,19 @@ public class Utilities {
 //                    videoTitle + ".mp4");
 //        }
 //    }
+
+    /**
+     * Simple method that return a string that represent the number of seconds giving milliseconds as parameter
+     *
+     * @param mill milliseconds
+     * @return the value in seconds as String
+     */
+    public static String fromMillisecondsToSeconds(int mill) {
+        return String.format("%d sec",
+                TimeUnit.MILLISECONDS.toSeconds(mill) -
+                        TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(mill)
+                        ));
+
+    }
+
 }

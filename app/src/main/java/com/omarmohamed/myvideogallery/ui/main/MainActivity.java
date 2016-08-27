@@ -3,8 +3,14 @@ package com.omarmohamed.myvideogallery.ui.main;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.media.MediaPlayer;
+import android.media.ThumbnailUtils;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.SystemClock;
+import android.provider.MediaStore;
+import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.GridLayoutManager;
@@ -16,6 +22,7 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.afollestad.materialcamera.MaterialCamera;
+import com.google.android.exoplayer.ExoPlayer;
 import com.omarmohamed.myvideogallery.R;
 import com.omarmohamed.myvideogallery.adapter.RecyclerViewAdapter;
 import com.omarmohamed.myvideogallery.component.AppComponent;
@@ -25,6 +32,7 @@ import com.omarmohamed.myvideogallery.modules.MainModule;
 import com.omarmohamed.myvideogallery.ui.common.BaseActivity;
 import com.omarmohamed.myvideogallery.ui.player.PlayerActivity;
 import com.omarmohamed.myvideogallery.utils.Constants;
+import com.omarmohamed.myvideogallery.utils.Utilities;
 
 import java.io.File;
 import java.util.List;
@@ -131,7 +139,7 @@ public class MainActivity extends BaseActivity implements MainView {
         new MaterialCamera(this)                               // Constructor takes an Activity
 //                .allowRetry(true)                                  // Whether or not 'Retry' is visible during playback
 //                .autoSubmit(true)                                 // Whether or not user is allowed to playback videos after recording. This can affect other things, discussed in the next section.
-                .saveDir(saveFolder)          // The folder recorded videos are saved to
+//                .saveDir(saveFolder)          // The folder recorded videos are saved to
 //                .primaryColorAttr(R.attr.colorPrimary)             // The theme color used for the camera, defaults to colorPrimary of Activity in the constructor
                 .showPortraitWarning(false)                         // Whether or not a warning is displayed if the user presses record in portrait orientation
                 .defaultToFrontFacing(true)                       // Whether or not the camera will initially show the front facing camera
@@ -166,6 +174,12 @@ public class MainActivity extends BaseActivity implements MainView {
         if (requestCode == Constants.Recorder.CAMERA_RQ) {
 
             if (resultCode == RESULT_OK) {
+                final File file = new File(data.getData().getPath());
+
+
+                //Retrieving data from the file and creating the relative model
+                VideoModel videoObject = createVideoModel(file);
+                //
 
                 Toast.makeText(this, "Saved to: " + data.getDataString(), Toast.LENGTH_LONG).show();
             } else if (data != null) {
@@ -174,6 +188,61 @@ public class MainActivity extends BaseActivity implements MainView {
                 Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
             }
         }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+        if (grantResults[0] != PackageManager.PERMISSION_GRANTED) {
+            // App was denied WRITE_EXTERNAL_STORAGE permission
+            Toast.makeText(this, getString(R.string.write_permissions_not_granted), Toast.LENGTH_LONG).show();
+        }
+    }
+
+    /**
+     * Method that get a video as file parameter and returns a VideoModel object
+     *
+     * @param file the video file
+     * @return the VideoModel object
+     */
+    private VideoModel createVideoModel(File file) {
+        VideoModel videoModel = new VideoModel();
+
+        //TODO: Set the data properly
+        ExoPlayer player = ExoPlayer.Factory.newInstance(2);
+
+//        DataSource dataSource = new DefaultUriDataSource(this, null, getUserAgent(this, "ExoPlayerExample"));
+//        SampleSource sampleSource = new SingleSampleSource(Uri.fromFile(file), dataSource, MediaFormat.createVideoFormat(file.getName(), Constants.Recorder.MIME_VIDEO_CODEC_H264,  MediaFormat.NO_VALUE,
+//                MediaFormat.NO_VALUE, C.UNKNOWN_TIME_US, 1280, 720, null));
+//        //SampleSource sampleSource = new SingleSampleSource(Uri.fromFile(file), dataSource, MediaFormat.createVideoFormat(Constants.Recorder.MIME_VIDEO_CODEC_H264, 1280, 720));
+//     //   SampleSource sampleSource = new FrameworkSampleSource(this,Uri.fromFile(file), null);
+//        TrackRenderer videoRenderer = new MediaCodecVideoTrackRenderer(this,
+//                sampleSource, MediaCodecSelector.DEFAULT, MediaCodec.VIDEO_SCALING_MODE_SCALE_TO_FIT_WITH_CROPPING);
+//        TrackRenderer audioRenderer = new MediaCodecAudioTrackRenderer(sampleSource, MediaCodecSelector.DEFAULT);
+//        player.prepare(videoRenderer, audioRenderer);
+//        player.getDuration();
+//        player.get
+        //TODO:Refactor all this part and clean it up
+        MediaPlayer mp = MediaPlayer.create(this, Uri.fromFile(file));
+        int duration = mp.getDuration();
+        mp.release();
+        /*convert millis to appropriate time*/
+        String durationString = Utilities.fromMillisecondsToSeconds(duration);
+
+
+        videoModel.setTitle(file.getName());
+        videoModel.setPath(file.getAbsolutePath());
+        videoModel.setThumbnail(ThumbnailUtils.createVideoThumbnail(videoModel.getPath(), MediaStore.Video.Thumbnails.MINI_KIND));
+
+
+        videoModel.setTimestamp(Utilities.fromMillisecondsToSeconds((int) System.currentTimeMillis()));
+        videoModel.setDuration(durationString);
+        videoModel.setCreationTime(Utilities.fromMillisecondsToSeconds((int) SystemClock.elapsedRealtime())); //TODO:Check how to retrieve it
+        //
+
+
+        return videoModel;
     }
 
 

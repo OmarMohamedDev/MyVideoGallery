@@ -29,6 +29,8 @@ public class Constants {
          * Max duration arbitrarily set for a video
          */
         public static int VIDEO_MAX_DURATION_IN_MILLISECONDS = 20000;
+
+        public static String MIME_VIDEO_CODEC_H264 = "type='video/mp4; codecs=\"avc1.42E01E, mp4a.40.2\"'";
     }
 
     /**
