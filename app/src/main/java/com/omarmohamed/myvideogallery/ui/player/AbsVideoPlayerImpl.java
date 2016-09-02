@@ -15,6 +15,7 @@ import com.google.android.exoplayer.MediaCodecTrackRenderer;
 import com.google.android.exoplayer.MediaCodecVideoTrackRenderer;
 import com.google.android.exoplayer.TrackRenderer;
 import com.google.android.exoplayer.audio.AudioTrack;
+import com.google.android.exoplayer.chunk.ChunkSampleSource;
 import com.google.android.exoplayer.chunk.Format;
 import com.google.android.exoplayer.hls.HlsSampleSource;
 
@@ -24,7 +25,8 @@ import java.io.IOException;
  * Created by omarmohamed on 26/08/2016.
  */
 
-public abstract class AbsVideoPlayerImpl extends FrameLayout implements HlsSampleSource.EventListener,
+//TODO: Check if chunk event listener iis the right now
+public abstract class AbsVideoPlayerImpl extends FrameLayout implements ChunkSampleSource.EventListener,
         MediaCodecVideoTrackRenderer.EventListener, MediaCodecAudioTrackRenderer.EventListener,
         ExoPlayer.Listener, SurfaceHolder.Callback {
 

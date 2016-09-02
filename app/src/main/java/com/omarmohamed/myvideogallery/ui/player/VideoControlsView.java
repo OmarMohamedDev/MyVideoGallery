@@ -17,6 +17,7 @@ import com.omarmohamed.myvideogallery.R;
  * Created by omarmohamed on 26/08/2016.
  */
 
+//TODO: Decentralize strings
 public class VideoControlsView extends RelativeLayout implements PlayerListener {
 
     private static final String TIMER_FORMAT = "%s / %s";

@@ -7,13 +7,13 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import com.omarmohamed.myvideogallery.R;
+import com.omarmohamed.myvideogallery.utils.Constants;
 
 /**
  * Created by omarmohamed on 26/08/2016.
  */
 public class ExoPlayerActivity extends Activity implements EndedListener, AudioManager.OnAudioFocusChangeListener {
-    public static final String EXTRA_URL = "extra_url";
-    private static final String TAG = ExoPlayerActivity.class.getSimpleName();
+
     private VideoPlayerView mPlayerView;
     private AudioManager mAudioManager;
 
@@ -35,9 +35,9 @@ public class ExoPlayerActivity extends Activity implements EndedListener, AudioM
         mAudioManager = (AudioManager) getSystemService(AUDIO_SERVICE);
 
         Intent intent = getIntent();
-        if (intent.hasExtra(EXTRA_URL)) {
-            String url = intent.getStringExtra(EXTRA_URL);
-            mPlayerView.setUrl(url);
+        if (intent.hasExtra(Constants.Player.EXTRA_URI)) {
+            String uri = intent.getStringExtra(Constants.Player.EXTRA_URI);
+            mPlayerView.setUri(uri);
         } else {
             showError();
         }

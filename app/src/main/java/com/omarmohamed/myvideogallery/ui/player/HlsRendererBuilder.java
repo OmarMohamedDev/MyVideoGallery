@@ -31,6 +31,7 @@ import java.io.IOException;
 /**
  * Created by omarmohamed on 26/08/2016.
  */
+//TODO: CHeck and fix properly this class
 
 public class HlsRendererBuilder implements ManifestFetcher.ManifestCallback<HlsPlaylist> {
 

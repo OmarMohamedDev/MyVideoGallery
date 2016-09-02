@@ -1,5 +1,6 @@
 package com.omarmohamed.myvideogallery.ui.main;
 
+import com.omarmohamed.myvideogallery.interactors.FindItemsInteractor;
 import com.omarmohamed.myvideogallery.models.VideoModel;
 
 import java.util.List;
@@ -7,16 +8,16 @@ import java.util.List;
 public class MainPresenterImpl implements MainPresenter, OnFinishedListener {
 
     private MainView mainView;
-    // private FindItemsInteractor findItemsInteractor;
+     private FindItemsInteractor findItemsInteractor;
 
-    public MainPresenterImpl(MainView mainView/*, FindItemsInteractor findItemsInteractor*/) {
+    public MainPresenterImpl(MainView mainView, FindItemsInteractor findItemsInteractor) {
         this.mainView = mainView;
-        //      this.findItemsInteractor = findItemsInteractor;
+        this.findItemsInteractor = findItemsInteractor;
     }
 
     @Override public void onResume() {
         mainView.showProgress();
-        //     findItemsInteractor.findItems(this);
+        findItemsInteractor.findItems(this);
     }
 
     @Override

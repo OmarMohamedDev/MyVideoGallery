@@ -39,7 +39,7 @@ public abstract class AbsVideoPlayer extends AbsVideoPlayerImpl implements Audio
     protected ExoPlayer mExoPlayer;
     protected PlayerControl mPlayerController;
     protected Handler mHandler;
-    private String mUrl;
+    private String mUri;
     private SurfaceHolder mSurfaceHolder;
     private HlsRendererBuilder mBuilder;
     private AudioCapabilitiesReceiver mAudioCapabilitiesReceiver;
@@ -79,8 +79,8 @@ public abstract class AbsVideoPlayer extends AbsVideoPlayerImpl implements Audio
         releasePlayer();
     }
 
-    public void setUrl(String url) {
-        mUrl = url;
+    public void setUri(String uri) {
+        mUri = uri;
     }
 
     public void releasePlayer() {
@@ -99,7 +99,7 @@ public abstract class AbsVideoPlayer extends AbsVideoPlayerImpl implements Audio
             mPlayerController = new PlayerControl(mExoPlayer);
             mExoPlayer.setPlayWhenReady(true);
             mExoPlayer.addListener(this);
-            mBuilder.build(getContext(), this, mUrl);
+            mBuilder.build(getContext(), this, mUri);
         }
     }
 
@@ -108,23 +108,11 @@ public abstract class AbsVideoPlayer extends AbsVideoPlayerImpl implements Audio
     }
 
     @Override
-    public void onAudioCapabilitiesChanged(AudioCapabilities audioCapabilities) {
-        // called when phone has  hdmi cord plugged in or unplugged
-        // wont worry about it for this demo cause I dont have a good way to test
-        // should probably release then re-prepare the player
-    }
-
-    @Override
     public void onSuccess(TrackRenderer[] renderers) {
         mVideoRenderer = (MediaCodecVideoTrackRenderer) renderers[VIDEO_RENDERER];
         mExoPlayer.sendMessage(mVideoRenderer, MediaCodecVideoTrackRenderer.MSG_SET_SURFACE, mSurfaceHolder.getSurface());
         mExoPlayer.seekTo(mPreviousPosition);
         mExoPlayer.prepare(renderers);
-    }
-
-    @Override
-    public void onFailure(Exception e) {
-        Log.e(TAG, "HlsRendererBuilder failed", e);
     }
 
     @Override

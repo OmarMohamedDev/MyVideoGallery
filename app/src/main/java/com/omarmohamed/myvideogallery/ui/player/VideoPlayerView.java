@@ -9,11 +9,12 @@ import android.util.AttributeSet;
 import android.util.Log;
 
 import com.google.android.exoplayer.ExoPlayer;
+import com.google.android.exoplayer.audio.AudioCapabilities;
 
 /**
  * Use this view to communicate with controls and listen to player state
  */
-public class VideoPlayerView extends AbsVideoPlayer implements ControlsListener {
+public class VideoPlayerView extends AbsVideoPlayer implements ControlsListener,OnAudioCapabilitiesChanged {
 
     private PlayerListener mPlayerListener;
     private EndedListener mEndedListener;
@@ -101,5 +102,15 @@ public class VideoPlayerView extends AbsVideoPlayer implements ControlsListener 
     public void onControlsShown() {
         mHandler.removeCallbacks(mUpdateProgress);
         mHandler.post(mUpdateProgress);
+    }
+
+    @Override
+    public void onAudioCapabilitiesChanged(AudioCapabilities audioCapabilities) {
+
+    }
+
+    @Override
+    public void onFailure(Exception e) {
+
     }
 }

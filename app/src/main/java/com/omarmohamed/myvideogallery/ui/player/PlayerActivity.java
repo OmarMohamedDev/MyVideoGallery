@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import com.omarmohamed.myvideogallery.R;
 import com.omarmohamed.myvideogallery.component.AppComponent;
 import com.omarmohamed.myvideogallery.ui.common.BaseActivity;
+import com.omarmohamed.myvideogallery.utils.Constants;
 
 /**
  * Created by omarmohamed on 26/08/2016.
@@ -28,7 +29,7 @@ public class PlayerActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(PlayerActivity.this, ExoPlayerActivity.class);
-                intent.putExtra(ExoPlayerActivity.EXTRA_URL, getString(R.string.video_url));
+                intent.putExtra(Constants.Player.EXTRA_URI, getIntent().getBundleExtra(/*TODO:Add it*/"Test"));
                 startActivity(intent);
             }
         });

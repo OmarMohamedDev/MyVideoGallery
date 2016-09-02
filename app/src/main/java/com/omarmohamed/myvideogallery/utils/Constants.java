@@ -34,6 +34,19 @@ public class Constants {
     }
 
     /**
+     * Class that contains all the constants used by the player of the app
+     */
+    public static class Player {
+        public static final String EXOPLAYER_LISTENER = "ExoPlayer.Listener";
+        public static final String SAMPLE_SOURCE_LISTENER = "SampleSource.Listener";
+        public static final String TRACK_RENDERER_LISTENER = "TrackRenderer.Listener";
+        public static final String VIDEO_TRACK_LISTENER = "VideoTrack.Listener";
+        public static final String AUDIO_TRACK_LISTENER = "AudioTrack.Listener";
+        public static final String SURFACE_HOLDER_CALLBACK = "SurfaceHolder.Callback";
+        public static final String EXTRA_URI = "extra_uri";
+    }
+
+    /**
      * Class that contains all the constants related to the network connectivity
      */
     public static class Network {

@@ -79,13 +79,6 @@ public class MainActivity extends BaseActivity implements MainView {
         });
     }
 
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        MenuInflater inflater = getMenuInflater();
-//        inflater.inflate(R.menu.main_menu, menu);
-//        return true;
-//    }
-
-
     @Override
     protected void setupComponent(AppComponent appComponent) {
         DaggerMainComponent.builder()
