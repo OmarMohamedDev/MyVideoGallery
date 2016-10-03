@@ -1,25 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.omarmohamed.myvideogallery">
+    package="com.omarmohamed.myvideogallery">
 
+    <!-- Basic permissions -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <!-- The user MUST can use the camera of the device in order to use properly the application -->
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
 
     <application
+        android:name=".Application"
         android:allowBackup="true"
-        android:name="com.omarmohamed.myvideogallery.App"
-        android:icon="@drawable/ic_launcher"
+        android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
+
+        <!-- Main Activity -->
         <activity
-            android:name="com.omarmohamed.myvideogallery.ui.main.MainActivity"
+            android:name=".ui.main.MainActivity"
             android:label="@string/app_name">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!-- Video Player Activities -->
+        <activity
+            android:name=".ui.player.PlayerActivity"
+            android:label="@string/video_preview" />
+        <activity
+            android:name=".ui.player.ExoPlayerActivity"
+            android:label="@string/video_preview"
+            android:screenOrientation="sensorLandscape" />
+        <!-- Video Recorder Activity -->
+        <activity
+            android:name="com.afollestad.materialcamera.CaptureActivity"
+            android:theme="@style/MaterialCamera.CaptureActivity" />
+        <activity
+            android:name="com.afollestad.materialcamera.CaptureActivity2"
+            android:theme="@style/MaterialCamera.CaptureActivity" />
     </application>
 
 </manifest>

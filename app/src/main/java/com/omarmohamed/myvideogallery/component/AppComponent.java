@@ -1,7 +1,6 @@
 package com.omarmohamed.myvideogallery.component;
 
-import com.omarmohamed.myvideogallery.App;
-import com.omarmohamed.myvideogallery.domain.AnalyticsManager;
+import com.omarmohamed.myvideogallery.Application;
 import com.omarmohamed.myvideogallery.domain.DomainModule;
 import com.omarmohamed.myvideogallery.interactors.FindItemsInteractor;
 import com.omarmohamed.myvideogallery.interactors.InteractorsModule;
@@ -20,8 +19,6 @@ import dagger.Component;
         }
 )
 public interface AppComponent {
-    void inject(App app);
-
-    AnalyticsManager getAnalyticsManager();
-    FindItemsInteractor getFindItemsInteractor();
+    void inject(Application application);
+     FindItemsInteractor getFindItemsInteractor();
 }

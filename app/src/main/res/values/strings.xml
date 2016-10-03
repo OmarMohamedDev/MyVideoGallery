@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">RetroDragger Example</string>
+    <string name="app_name">My Video Gallery</string>
     <string name="hello_world">Hello world!</string>
-    <string name="title_activity_main">RetroDragger</string>
-
+    <string name="title_activity_main">My Video Gallery</string>
+    <string name="title_menu_record">Record</string>
+    <string name="video_created_in">Created in %1$d seconds</string>
+    <string name="duration_string">%1$d seconds</string>
+    <string name="video_url">http://walterebert.com/playground/video/hls/sintel-trailer.m3u8</string>
+    <string name="video_player_error">Unfortunately, an error occurred during playback.</string>
+    <string name="video_preview">Video Preview</string>
+    <string name="video_recording">Record a Video</string>
+    <string name="saved_to">Saved to: </string>
+    <string name="write_permissions_not_granted">Videos will be saved in a cache directory instead of an external storage directory since permission was denied.</string>
 </resources>

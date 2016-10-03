@@ -1,50 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:app="http://schemas.android.com/apk/res-auto"
-             android:orientation="vertical"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             android:foreground="?android:attr/selectableItemBackground">
-    
-    <android.support.v7.widget.CardView
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:application="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:foreground="?android:attr/selectableItemBackground"
+    android:onClick="startPlayer"
+    android:orientation="vertical"
+    application:cardElevation="@dimen/view_elevation"
+    application:cardUseCompatPadding="true">
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:cardElevation="4dp"
-        app:cardUseCompatPadding="true">
-        
-        <FrameLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="@dimen/activity_horizontal_margin">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal" >
+        <!-- TODO: Set the style of the text in the styles file and remove hardcoded text and images from here -->
 
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1">
+        <ImageView
+            android:id="@+id/imageThumbnail"
+            android:layout_width="@dimen/avatar_standard_dimension"
+            android:layout_height="@dimen/avatar_standard_dimension"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="@dimen/icon_margin"
+            android:src="@mipmap/ic_launcher" />
 
-                    <TextView
-                        android:id="@+id/textName"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:singleLine="false"
-                        android:gravity="center|left"
-                        android:maxLines="2"
-                        android:ellipsize="end"
-                        android:text="Name" />
+        <LinearLayout
+            android:id="@+id/textContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_margin="@dimen/text_margin"
+            android:layout_toRightOf="@id/imageThumbnail"
+            android:orientation="vertical">
 
-                </LinearLayout>
+            <TextView
+                android:id="@+id/textTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/text_margin_bottom"
+                android:maxLines="1"
+                android:text="Name"
+                android:textSize="@dimen/text_title_dimension"
+                android:textStyle="bold" />
 
-            </LinearLayout>
+            <TextView
+                android:id="@+id/textTimestamp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:textStyle="italic" />
 
-        </FrameLayout>
-        
-    </android.support.v7.widget.CardView>
-    
-</FrameLayout>
+            <TextView
+                android:id="@+id/textDuration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:text="@string/duration_string" />
+
+            <TextView
+                android:id="@+id/textCreationTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:text="@string/video_created_in" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/iconsContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:orientation="vertical">
+            <!-- TODO: Check if clickable should be setted to true here or elsewhere -->
+            <ImageView
+                android:id="@+id/iconDelete"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/icon_standard_height"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/icon_margin"
+                android:layout_marginBottom="@dimen/text_margin_bottom"
+                android:clickable="true"
+                android:src="@drawable/ic_delete" />
+
+            <ImageView
+                android:id="@+id/iconShare"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/icon_standard_height"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/icon_margin"
+                android:layout_marginBottom="@dimen/text_margin_bottom"
+                android:clickable="true"
+                android:src="@drawable/ic_share" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

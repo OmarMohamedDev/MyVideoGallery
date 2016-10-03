@@ -1,26 +1,26 @@
 package com.omarmohamed.myvideogallery;
 
-import android.app.Application;
 import android.content.Context;
 
 import com.omarmohamed.myvideogallery.component.AppComponent;
 import com.omarmohamed.myvideogallery.component.DaggerAppComponent;
-import com.omarmohamed.myvideogallery.domain.AnalyticsManager;
 import com.omarmohamed.myvideogallery.modules.AppModule;
 
 import javax.inject.Inject;
 
-public class App extends Application {
+public class Application extends android.app.Application {
 
-    private AppComponent component;
-
+    //todo: change visibility to private to component again
     @Inject
-    AnalyticsManager analyticsManager;
+    public AppComponent component;
+
+    public static Application get(Context context) {
+        return (Application) context.getApplicationContext();
+    }
 
     @Override public void onCreate() {
         super.onCreate();
         setupGraph();
-        analyticsManager.registerAppEnter();
     }
 
     private void setupGraph() {
@@ -32,9 +32,5 @@ public class App extends Application {
 
     public AppComponent component() {
         return component;
-    }
-
-    public static App get(Context context) {
-        return (App) context.getApplicationContext();
     }
 }
